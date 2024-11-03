@@ -18,6 +18,9 @@ void InsertionSort(List<int> data,int n){
   print(data);
 }
 
+//worst case O(n^2)
+//
+
 void ShellSort(List<int> data,int n){
   int i, j, tmp, gap;
   print(data);
