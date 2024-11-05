@@ -1,3 +1,5 @@
+import 'dart:io';
+
 List<int> data=[10,7,4,9,5,78,43,78,2,67,5];
 //heap sort is gonna be explaining in binary search trees
 //best case O(n)
@@ -55,16 +57,73 @@ void BubleSort(List<int> data,int n){
 
 }
 
-void MergeSort(List<int> data,int n){
-  
+void Merge(List<int> data, int left, int middle, int right){
+  int i, j, k;
+  int n1 = middle - left + 1;
+  int n2 = right - middle;
+
+  //temporary lists
+  List<int> L=List.filled(n1,0);
+  List<int> R=List.filled(n2,0);
+
+  //copy data to temportary lists
+  for( i = 0 ; i < n1 ; i++ ){
+    L[i] = data[left+i];
+  }
+  for( j = 0 ; j < n2 ; j++ ){
+    R[j] = data[middle+j+1];
+  }
+
+  //combine them
+  i = 0;
+  j = 0;
+  k = left;
+
+  while( i < n1 && j < n2 ){
+    if( L[i] <= R[j] ){
+      data[k] = L[i];
+      i++;
+    } else {
+      data[k] = R[j];
+      j++;
+    }
+    k++;
+  }
+
+  while ( i < n1 ){
+    data[k] = L[i];
+    i++;
+    k++;
+  }
+
+  while ( j < n2 ){
+    data[k] = R[j];
+    j++;
+    k++;
+  }
+}
+
+void MergeSort(List<int> data, int left, int right){
+  if(left<right){
+      int middle = left+(right-left)~/2;
+
+    //merge the array and call the mergesort
+
+    MergeSort(data, left ,middle);
+    MergeSort(data, middle+1, right);
+
+    //combine arrays
+    Merge(data, left, middle, right);
+  }
 }
 
 
 
 void main(){
   int n=11;//n is the height
+  MergeSort(data,0, n-1);
   //BubleSort(data, n);
   //ShellSort(data,n);
   //InsertionSort(data,n);
- // print(data);
+  print(data);
 }
