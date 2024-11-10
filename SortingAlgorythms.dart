@@ -1,3 +1,4 @@
+// ignore: unused_import
 import 'dart:io';
 
 List<int> data=[10,7,4,9,5,78,43,78,2,67,5];
