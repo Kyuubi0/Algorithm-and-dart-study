@@ -6,7 +6,7 @@ List<int> data=[10,7,4,9,5,78,43,78,2,67,5];
 //avarage case is O(n^2)
 //this algorythims analyze is O(n^2) so there it is guaranteed that this can't be bad than that
 void InsertionSort(List<int> data,int n){
-  int i, j, tmp; 
+  int i, j, tmp;
   print(data);
   for( i = 0 ; i < n ; i++ ){
     for( j = 0 ; j < n ; j++ ){
