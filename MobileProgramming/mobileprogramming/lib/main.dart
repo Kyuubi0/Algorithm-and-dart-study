@@ -33,42 +33,48 @@ class HomePage extends StatelessWidget{
         ]
       ),
       body: Center(
-        child: RichText(
-          text: TextSpan(
-            text: "Rich Text is good for design \n",
-            style: TextStyle(
-              color: const Color.fromARGB(255, 45, 155, 245),
-              fontSize: 20,
-              fontStyle: FontStyle.italic,
-            ),
-            children: [
-              TextSpan(
-                text: "Hello there!\n",
-                style: TextStyle(
-                color: const Color.fromARGB(255, 10, 173, 179),
-                fontSize: 20,
-                fontStyle: FontStyle.italic,
-                ),
-              ),
-              TextSpan(
-                text: "Hello there!\n",
-                style: TextStyle(
-                color: const Color.fromARGB(255, 88, 146, 81),
-                fontSize: 20,
-                fontStyle: FontStyle.italic,
-                ),
-              ),
-              TextSpan(
-                text: "Hello there!\n",
-                style: TextStyle(
-                color: const Color.fromARGB(255, 96, 101, 173),
-                fontSize: 20,
-                fontStyle: FontStyle.italic,
-                ),
-              ),
-            ],
-          ),
+        child: Icon(
+          Icons.access_alarm,
+          //Icons.heart_broken_outlined,
+          color: const Color.fromARGB(255, 12, 119, 207),
+          size: 72,
         ),
+        // child: RichText(
+        //   text: TextSpan(
+        //     text: "Rich Text is good for design \n",
+        //     style: TextStyle(
+        //       color: const Color.fromARGB(255, 45, 155, 245),
+        //       fontSize: 20,
+        //       fontStyle: FontStyle.italic,
+        //     ),
+        //     children: [
+        //       TextSpan(
+        //         text: "Hello there!\n",
+        //         style: TextStyle(
+        //         color: const Color.fromARGB(255, 10, 173, 179),
+        //         fontSize: 20,
+        //         fontStyle: FontStyle.italic,
+        //         ),
+        //       ),
+        //       TextSpan(
+        //         text: "Hello there!\n",
+        //         style: TextStyle(
+        //         color: const Color.fromARGB(255, 88, 146, 81),
+        //         fontSize: 20,
+        //         fontStyle: FontStyle.italic,
+        //         ),
+        //       ),
+        //       TextSpan(
+        //         text: "Hello there!\n",
+        //         style: TextStyle(
+        //         color: const Color.fromARGB(255, 96, 101, 173),
+        //         fontSize: 20,
+        //         fontStyle: FontStyle.italic,
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+        // ),
         // Text(
         //   "Hello first app",
         //   textAlign: TextAlign.center,
