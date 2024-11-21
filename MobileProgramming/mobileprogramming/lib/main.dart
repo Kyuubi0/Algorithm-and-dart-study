@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+// ignore: unused_import
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -23,22 +24,59 @@ class HomePage extends StatelessWidget{
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 233, 246, 248),
       appBar: AppBar(
+      // ignore: duplicate_ignore
       // ignore: prefer_const_constructors
       title: Text("FirstApp"),
       actions: [
         IconButton(onPressed: () => {}, icon: Icon(Icons.save)),
         IconButton(onPressed: () => {}, icon: Icon(Icons.delete)),
+        // ignore: duplicate_ignore
         // ignore: prefer_const_constructors
         IconButton(onPressed: () => {}, icon: Icon(Icons.update)),
         ]
       ),
-      body: Center(
-        child: Icon(
-          Icons.access_alarm,
-          //Icons.heart_broken_outlined,
-          color: const Color.fromARGB(255, 12, 119, 207),
-          size: 72,
+      body: Center( //Container
+        child: Container(
+          width: 300,
+          height: 300,
+          padding: EdgeInsets.all(10),
+          //color: const Color.fromARGB(255, 12, 59, 131),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            border: Border.all(color: const Color.fromARGB(255, 22, 123, 148),
+            width: 4,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey,
+                spreadRadius: 5,
+                blurRadius:15,
+              )
+            ],
+            gradient: LinearGradient(
+              colors: [const Color.fromARGB(255, 1, 62, 112), const Color.fromARGB(255, 20, 172, 114)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+            borderRadius: BorderRadius.circular(60)
+          ),
+          child: CircleAvatar(
+            backgroundImage: 
+              NetworkImage("https://www.mystopiagame.com/SplashArt.png"),),
         ),
+      ),
+    );
+  }
+}
+      // Center(
+      //   child: //Image.asset("assets/images/akali.png"),
+
+        // child: Icon(
+        //   Icons.access_alarm,
+        //   //Icons.heart_broken_outlined,
+        //   color: const Color.fromARGB(255, 12, 119, 207),
+        //   size: 72,
+        // ),
         // child: RichText(
         //   text: TextSpan(
         //     text: "Rich Text is good for design \n",
@@ -90,7 +128,9 @@ class HomePage extends StatelessWidget{
         //     //backgroundColor: const Color.fromARGB(255, 154, 211, 211),
         //     ),
         // ),
-      ),
-    );
-  }
-}
+          // child: Image.network(
+          //   width: 300,
+          //   height:  300,
+          //   "https://www.mystopiagame.com/SplashArt.png",
+          //   fit: BoxFit.scaleDown,
+          // ),
