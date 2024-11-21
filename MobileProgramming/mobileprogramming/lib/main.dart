@@ -36,33 +36,45 @@ class HomePage extends StatelessWidget{
         ]
       ),
       body: Center( //Container
-        child: Container(
-          width: 300,
-          height: 300,
-          padding: EdgeInsets.all(10),
-          //color: const Color.fromARGB(255, 12, 59, 131),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(color: const Color.fromARGB(255, 22, 123, 148),
-            width: 4,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 300,
+              height: 300,
+              padding: EdgeInsets.all(10),
+              //color: const Color.fromARGB(255, 12, 59, 131),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(color: const Color.fromARGB(255, 22, 123, 148),
+                width: 4,
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey,
+                    spreadRadius: 5,
+                    blurRadius:15,
+                  )
+                ],
+                gradient: LinearGradient(
+                  colors: [const Color.fromARGB(255, 1, 62, 112), const Color.fromARGB(255, 20, 172, 114)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.circular(60)
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(6.0),
+                child: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                  "https://www.mystopiagame.com/SplashArt.png"
+                  ),
+                ),
+                ),
             ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey,
-                spreadRadius: 5,
-                blurRadius:15,
-              )
-            ],
-            gradient: LinearGradient(
-              colors: [const Color.fromARGB(255, 1, 62, 112), const Color.fromARGB(255, 20, 172, 114)],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-            borderRadius: BorderRadius.circular(60)
-          ),
-          child: CircleAvatar(
-            backgroundImage: 
-              NetworkImage("https://www.mystopiagame.com/SplashArt.png"),),
+            SizedBox(height: 25,),
+            Text("Mystopia is the greatest game you can ever see.",style: TextStyle(color: const Color.fromARGB(255, 13, 155, 96)),)
+          ],
         ),
       ),
     );
