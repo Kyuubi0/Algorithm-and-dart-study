@@ -1,0 +1,61 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: TextFieldExample(),
+    );
+  }
+}
+
+class TextFieldExample extends StatelessWidget {
+  const TextFieldExample({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('TextField Example')),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            // Basic TextField
+            const TextField(
+              decoration: InputDecoration(
+                labelText: 'Basic Input',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 10),
+
+            // Hint text with icon
+            const TextField(
+              decoration: InputDecoration(
+                hintText: 'Write something...',
+                prefixIcon: Icon(Icons.edit),
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 10),
+
+            // Without border
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Without Border',
+                border: InputBorder.none,
+                filled: true,
+                fillColor: Colors.grey[200],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

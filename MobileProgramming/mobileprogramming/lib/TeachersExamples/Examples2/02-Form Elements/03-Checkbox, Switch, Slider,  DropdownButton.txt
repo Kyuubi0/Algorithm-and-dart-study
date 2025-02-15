@@ -1,0 +1,134 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: InputWidgetsExample(),
+    );
+  }
+}
+
+class InputWidgetsExample extends StatefulWidget {
+  const InputWidgetsExample({super.key});
+
+  @override
+  State<InputWidgetsExample> createState() => _InputWidgetsExampleState();
+}
+
+class _InputWidgetsExampleState extends State<InputWidgetsExample> {
+  bool isChecked = false;
+  bool isSwitched = false;
+  double sliderValue = 0.0;
+  String selectedValue = 'Option 1';
+
+  void _printValues() {
+    print('--- Current Values ---');
+    print('Checkbox: $isChecked');
+    print('Switch: $isSwitched');
+    print('Slider: $sliderValue');
+    print('Dropdown: $selectedValue');
+    print('-------------------');
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Input Widgets')),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            // Checkbox
+            Row(
+              children: [
+                Checkbox(
+                  value: isChecked,
+                  onChanged: (value) {
+                    setState(() {
+                      isChecked = value!;
+                    });
+                  },
+                ),
+                const Text('Checkbox Example'),
+              ],
+            ),
+            const SizedBox(height: 20),
+
+            // Switch
+            Row(
+              children: [
+                Switch(
+                  value: isSwitched,
+                  onChanged: (value) {
+                    setState(() {
+                      isSwitched = value;
+                    });
+                  },
+                ),
+                const Text('Switch Example'),
+              ],
+            ),
+            const SizedBox(height: 20),
+
+            // Slider
+            Column(
+              children: [
+                Slider(
+                  value: sliderValue,
+                  min: 0,
+                  max: 100,
+                  divisions: 10,
+                  label: sliderValue.round().toString(),
+                  onChanged: (value) {
+                    setState(() {
+                      sliderValue = value;
+                    });
+                  },
+                ),
+                Text('Slider Value: ${sliderValue.round()}'),
+              ],
+            ),
+            const SizedBox(height: 20),
+
+            // DropdownButton
+            DropdownButton<String>(
+              value: selectedValue,
+              items: const [
+                DropdownMenuItem(
+                  value: 'Option 1',
+                  child: Text('Option 1'),
+                ),
+                DropdownMenuItem(
+                  value: 'Option 2',
+                  child: Text('Option 2'),
+                ),
+                DropdownMenuItem(
+                  value: 'Option 3',
+                  child: Text('Option 3'),
+                ),
+              ],
+              onChanged: (value) {
+                setState(() {
+                  selectedValue = value!;
+                });
+              },
+            ),
+            const SizedBox(height: 20),
+
+            // Print Values Button
+            ElevatedButton(
+              onPressed: _printValues,
+              child: const Text('Print Values to Console'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

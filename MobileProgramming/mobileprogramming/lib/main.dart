@@ -29,10 +29,8 @@ class ProfilePage extends StatelessWidget{
     return Scaffold(
       backgroundColor: Colors.grey,
       body: Center(
-        child: Wrap(children: [
-        ],)
+        child: Wrap(children: <Widget>[])
         ),
-      )
-    );
+      );
   }
 }

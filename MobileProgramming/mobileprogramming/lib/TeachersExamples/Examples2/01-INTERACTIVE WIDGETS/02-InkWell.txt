@@ -1,0 +1,142 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: const InkWellExample(),
+    );
+  }
+}
+
+class InkWellExample extends StatefulWidget {
+  const InkWellExample({super.key});
+
+  @override
+  State<InkWellExample> createState() => _InkWellExampleState();
+}
+
+class _InkWellExampleState extends State<InkWellExample> {
+  String _message = 'Try the buttons!';
+  Color _cardColor = Colors.white;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('InkWell Example'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // Basic InkWell
+            Card(
+              child: InkWell(
+                onTap: () {
+                  setState(() => _message = 'Tapped the first card!');
+                },
+                child: Container(
+                  width: 200,
+                  height: 100,
+                  alignment: Alignment.center,
+                  child: const Text(
+                    'Basic InkWell\nTap me!',
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+
+            // Customized InkWell
+            Card(
+              color: _cardColor,
+              child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _message = 'Tapped the second card!';
+                    _cardColor = Colors.blue.shade100;
+                  });
+                },
+                onDoubleTap: () {
+                  setState(() {
+                    _message = 'Double tapped the second card!';
+                    _cardColor = Colors.green.shade100;
+                  });
+                },
+                onLongPress: () {
+                  setState(() {
+                    _message = 'Long pressed the second card!';
+                    _cardColor = Colors.red.shade100;
+                  });
+                },
+                splashColor: Colors.purple,
+                highlightColor: Colors.yellow.withOpacity(0.5),
+                child: Container(
+                  width: 200,
+                  height: 100,
+                  alignment: Alignment.center,
+                  child: const Text(
+                    'Custom InkWell\nTry: tap, double tap, long press',
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+
+            // Circular InkWell
+            Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTap: () {
+                  setState(() => _message = 'Tapped the circle!');
+                },
+                customBorder: const CircleBorder(),
+                child: Ink(
+                  decoration: const BoxDecoration(
+                    color: Colors.blue,
+                    shape: BoxShape.circle,
+                  ),
+                  child: const SizedBox(
+                    width: 100,
+                    height: 100,
+                    child: Icon(
+                      Icons.touch_app,
+                      color: Colors.white,
+                      size: 50,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+
+            // Message display
+            Text(
+              _message,
+              style: const TextStyle(fontSize: 18),
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            _message = 'Try the buttons!';
+            _cardColor = Colors.white;
+          });
+        },
+        child: const Icon(Icons.refresh),
+      ),
+    );
+  }
+}

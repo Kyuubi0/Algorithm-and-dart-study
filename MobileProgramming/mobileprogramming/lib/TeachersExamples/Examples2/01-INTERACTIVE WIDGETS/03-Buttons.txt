@@ -1,0 +1,153 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: const ButtonsExample(),
+    );
+  }
+}
+
+class ButtonsExample extends StatelessWidget {
+  const ButtonsExample({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Flutter Buttons'),
+      ),
+      body: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              // ElevatedButton Examples
+              const Text('ElevatedButton Examples:',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () {},
+                child: const Text('Basic ElevatedButton'),
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.add),
+                label: const Text('ElevatedButton with Icon'),
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.all(20),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                ),
+                child: const Text('Styled ElevatedButton'),
+              ),
+              const SizedBox(height: 20),
+
+              // TextButton Examples
+              const Text('TextButton Examples:',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              const SizedBox(height: 10),
+              TextButton(
+                onPressed: () {},
+                child: const Text('Basic TextButton'),
+              ),
+              const SizedBox(height: 10),
+              TextButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.info),
+                label: const Text('TextButton with Icon'),
+              ),
+              const SizedBox(height: 10),
+              TextButton(
+                onPressed: () {},
+                style: TextButton.styleFrom(
+                  foregroundColor: Colors.green,
+                  textStyle: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                child: const Text('Styled TextButton'),
+              ),
+              const SizedBox(height: 20),
+
+              // OutlinedButton Examples
+              const Text('OutlinedButton Examples:',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              const SizedBox(height: 10),
+              OutlinedButton(
+                onPressed: () {},
+                child: const Text('Basic OutlinedButton'),
+              ),
+              const SizedBox(height: 10),
+              OutlinedButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.star),
+                label: const Text('OutlinedButton with Icon'),
+              ),
+              const SizedBox(height: 10),
+              OutlinedButton(
+                onPressed: () {},
+                style: OutlinedButton.styleFrom(
+                  side: const BorderSide(color: Colors.red, width: 2),
+                  foregroundColor: Colors.red,
+                  padding: const EdgeInsets.all(20),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                ),
+                child: const Text('Styled OutlinedButton'),
+              ),
+              const SizedBox(height: 20),
+
+              // IconButton Examples
+              const Text('IconButton Examples:',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.favorite),
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.favorite),
+                    color: Colors.red,
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.favorite),
+                    iconSize: 40,
+                    color: Colors.red,
+                    style: IconButton.styleFrom(
+                      backgroundColor: Colors.red.withOpacity(0.1),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

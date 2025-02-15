@@ -1,0 +1,89 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: HomePage(),
+    );
+  }
+}
+
+// Stateless Widget Example
+class StaticWidget extends StatelessWidget {
+  const StaticWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Card(
+      color: Colors.blue,
+      child: Padding(
+        padding: EdgeInsets.all(20),
+        child: Text(
+          'This is a static text',
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
+    );
+  }
+}
+
+// Stateful Widget Example
+class CounterWidget extends StatefulWidget {
+  const CounterWidget({super.key});
+
+  @override
+  State<CounterWidget> createState() => _CounterWidgetState();
+}
+
+class _CounterWidgetState extends State<CounterWidget> {
+  int count = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: Colors.green,
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              'Count: $count',
+              style: const TextStyle(color: Colors.white),
+            ),
+            ElevatedButton(
+              onPressed: () => setState(() => count++),
+              child: const Text('Increase'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('State Example')),
+      body: const Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            StaticWidget(),
+            SizedBox(height: 20),
+            CounterWidget(),
+          ],
+        ),
+      ),
+    );
+  }
+}
